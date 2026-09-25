@@ -1,0 +1,32 @@
+{
+  "park_name": "Oak Hollow Park",
+  "park_name_short": "Oak Hollow Guide",
+  "slug": "oak-hollow",
+  "location_suffix": ", North Huntingdon Township, Westmoreland County, PA",
+  "contact_email": "overalls2@protonmail.com",
+  "address": "2130 Timothy Dr, North Huntingdon, PA 15642",
+  "phone": "(724) 863-3806",
+  "canonical_url": "https://liebeneathtrees.github.io/Oak_Hollow_Park_Field_Guide/",
+  "icon": "acorn",
+
+  "center_lat": 40.3489,
+  "center_lng": -79.6986,
+  "bbox": { "swlat": 40.3430, "swlng": -79.7065, "nelat": 40.3550, "nelng": -79.6905 },
+
+  "colors": {
+    "forest": "#3a4a2c",
+    "forest_deep": "#232d1a",
+    "parchment": "#f2ecdd",
+    "card": "#fbf8f0",
+    "ink": "#2a2318",
+    "line": "#ddd3bc",
+    "accent": "#b8632e"
+  },
+
+  "habitats": [
+    { "key": "pond", "label": "Pond & Shoreline", "color": "#3d7a8a" },
+    { "key": "fields", "label": "Rolling Fields", "color": "#9a8a3f" },
+    { "key": "woodsEdge", "label": "Woodland Edge", "color": "#6e7a3a" },
+    { "key": "hardwoods", "label": "Hardwood Woods", "color": "#4a5e34" }
+  ]
+}
