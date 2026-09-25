@@ -43,6 +43,9 @@
     --animal-color: #a0522d;
     --line: #ddd3bc;
     --accent: #b8632e;
+    /* Lighter acorn tan for text and links on the dark olive menu: the rust
+       accent is only 2.2:1 there, this is 5.1:1. Rust stays for fills and light backgrounds. */
+    --accent-light: #e8b27a;
   }
 
   * { box-sizing: border-box; }
@@ -258,12 +261,12 @@
   }
 
   .species-row.found {
-    background: rgba(184,99,46,0.12);
+    background: rgba(232,178,122,0.12);
   }
 
   .species-row.found .common::after {
     content: " \2713";
-    color: var(--accent);
+    color: var(--accent-light);
     font-weight: 600;
   }
 
@@ -279,9 +282,9 @@
      anything added later) so nothing relies on the browser's default blue,
      which has poor contrast against the dark green background. */
   .sidebar a {
-    color: var(--accent);
+    color: var(--accent-light);
     text-decoration: underline;
-    text-decoration-color: rgba(184,99,46,0.45);
+    text-decoration-color: rgba(232,178,122,0.45);
     text-underline-offset: 2px;
   }
 
@@ -291,8 +294,8 @@
   }
 
   .seasonal-widget {
-    background: rgba(184,99,46,0.12);
-    border: 1px solid rgba(184,99,46,0.35);
+    background: rgba(232,178,122,0.12);
+    border: 1px solid rgba(232,178,122,0.35);
     border-radius: 8px;
     padding: 14px 16px;
   }
@@ -359,7 +362,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--accent);
+    color: var(--accent-light);
     margin-right: 6px;
   }
 
@@ -551,7 +554,7 @@
   }
 
   .challenge-row.found .challenge-name strong {
-    color: var(--accent);
+    color: var(--accent-light);
   }
 
   .challenge-msg {
@@ -620,7 +623,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--accent-light);
     margin-bottom: 6px;
   }
 
@@ -712,7 +715,7 @@
     border-radius: 6px;
     padding: 8px 10px;
     margin-top: 4px;
-    color: var(--accent);
+    color: var(--accent-light);
     cursor: pointer;
   }
 
@@ -1324,16 +1327,16 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 0.8rem;
     font-weight: 500;
-    background: rgba(184,99,46,0.16);
-    color: var(--accent);
-    border: 1px solid rgba(184,99,46,0.4);
+    background: rgba(232,178,122,0.16);
+    color: var(--accent-light);
+    border: 1px solid rgba(232,178,122,0.4);
     border-radius: 6px;
     padding: 7px 12px;
     cursor: pointer;
   }
 
   .help-trigger-btn:hover {
-    background: rgba(184,99,46,0.26);
+    background: rgba(232,178,122,0.26);
   }
 
   .help-backdrop {
@@ -4106,7 +4109,7 @@
           <div class="trail-name">${p.name || 'Unnamed'} <span style="font-weight:400; font-style:italic; color:#a9baa1;">(${meta.label})</span></div>
           <div class="trail-stats" style="display:flex; gap:12px; margin-top:5px;">
             <button type="button" class="mypin-list-edit" data-id="${p.id}" style="background:none; border:none; color:#b7c4ae; cursor:pointer; padding:0; font-size:0.78rem; text-decoration:underline;">Edit</button>
-            <button type="button" class="mypin-list-export" data-id="${p.id}" style="background:none; border:none; color:var(--accent); cursor:pointer; padding:0; font-size:0.78rem; text-decoration:underline;">Download</button>
+            <button type="button" class="mypin-list-export" data-id="${p.id}" style="background:none; border:none; color:var(--accent-light); cursor:pointer; padding:0; font-size:0.78rem; text-decoration:underline;">Download</button>
             <button type="button" class="mypin-list-delete" data-id="${p.id}" style="background:none; border:none; color:#e0a58f; cursor:pointer; padding:0; font-size:0.78rem; text-decoration:underline;">Delete</button>
           </div>
         </div>
