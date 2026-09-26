@@ -5120,9 +5120,19 @@
   const SHARE_PARK = 'Oak Hollow Park';
   const CANONICAL_URL = (document.querySelector('link[rel="canonical"]') || {}).href || '';
   const baseUrl = () => /^https?:/.test(location.protocol) ? location.origin + location.pathname : CANONICAL_URL;
-  const ACORN_PATHS = ['M17.5,9 L17.5,5 Q17.5,2 20.5,1.5 L21.5,3.5 Q20.5,4 20.5,5.5 L20.5,9 Z',
-    'M3,19 Q3,8.5 19,8.5 Q35,8.5 35,19 Q35,20.5 33.5,20.5 L4.5,20.5 Q3,20.5 3,19 Z',
-    'M7,22.5 L31,22.5 C31,32 26,38 19,41 C12,38 7,32 7,22.5 Z'];
+  // The page's own logo (pine, acorn, ...) as an image for the progress picture, recolored.
+  function logoImage(color) {
+    const svg = document.querySelector('.sidebar-title-block .logo-icon') || document.querySelector('.logo-icon');
+    if (!svg) return Promise.resolve(null);
+    const markup = svg.outerHTML.replace(/var\(--accent\)/g, color)
+      .replace(/<svg /, '<svg xmlns="http://www.w3.org/2000/svg" ').replace(/width="[^"]*" height="[^"]*"/, 'width="380" height="420"');
+    return new Promise(res => {
+      const img = new Image();
+      img.onload = () => res(img);
+      img.onerror = () => res(null);
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(markup);
+    });
+  }
 
   let toastEl = null, toastTimer = null;
   function showToast(msg) {
@@ -5184,9 +5194,8 @@
     ctx.fillStyle = deep; ctx.fillRect(0, H - 150, W, 150);
 
     // logo
-    ctx.save(); ctx.translate(90, 90); ctx.scale(2.6, 2.6); ctx.fillStyle = tan;
-    if (window.Path2D) ACORN_PATHS.forEach(d => ctx.fill(new Path2D(d)));
-    ctx.restore();
+    const logo = await logoImage(tan);
+    if (logo) ctx.drawImage(logo, 90, 90, 99, 109);
     ctx.fillStyle = cream; ctx.textBaseline = 'alphabetic';
     ctx.font = `600 34px ${sans}`; ctx.fillText(SHARE_PARK.toUpperCase().split('').join(String.fromCharCode(8202)), 210, 138);
     ctx.font = `italic 700 58px ${serif}`; ctx.fillText('Field Guide', 210, 200);
